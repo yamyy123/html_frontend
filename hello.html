@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="error-message" id="errorMessage"></div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" >
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Simple validation: check if username and password are empty
+            if (username.trim() === '' || password.trim() === '') {
+                errorMessage.textContent = 'Please enter both username and password';
+            } else {
+                // Here you can perform additional validation or send the data to the server for authentication
+                // For this example, let's just show an alert with the entered username and password
+                alert('Login successful!\nUsername: ' + username + '\nPassword: ' + password);
+                // Reset form fields after successful login
+                document.getElementById('loginForm').reset();
+                // Clear any previous error message
+                errorMessage.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -4,9 +4,20 @@
         <title>
             welcome
         </title>
+        <style>
+            #good{
+                color: blue;
+            }
+        </style>
     </head>
     <body>
-        <button></button>
-        <h1 id="good"></h1>
+        <button onclick="myFunction()">click to rename text</button>
+        <h1 id="good">good morning</h1>
+        <script>
+            function myFunction(){
+                var x = document.getElementById("good").innerHTML= "good night";
+            }
+        </script>
     </body>
 </html>
+<!--every id must be unique because it helps in using javascript and html,css-->

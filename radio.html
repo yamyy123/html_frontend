@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Radio Buttons</h2>
+
+<p>Choose your favorite Web language:</p>
+
+<form id="languageForm">
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label><br><br>
+  <input type="submit" id="submit"  value="submit">
+</form> 
+
+<p id="result"></p>
+
+<script>
+    // Get the form element
+    const form = document.getElementById('languageForm');
+    
+    // Add event listener to the form
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get the selected radio button
+        const selectedLanguage = document.querySelector('input[name="fav_language"]:checked');
+        
+        // Check if any radio button is selected
+        if (selectedLanguage) {
+            // Get the value of the selected radio button
+            const languageValue = selectedLanguage.value;
+            
+            // Display the selected language
+            document.getElementById('result').textContent = 'Your favorite language is: ' + languageValue;
+        } else {
+            // If no radio button is selected, display an error message
+            document.getElementById('result').textContent = 'Please choose a language!';
+        }
+    });
+</script>
+
+</body>
+</html>

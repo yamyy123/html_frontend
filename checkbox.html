@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Checkboxes</h2>
+<p>The <strong>input type="checkbox"</strong> defines a checkbox:</p>
+
+<form id="vehicleForm" autocomplete="on">
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> I have a boat</label><br><br>
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+
+</form> 
+
+<p id="result"></p>
+
+<script>
+    // Get the form element
+    const form = document.getElementById('vehicleForm');
+    
+    // Add event listener to the form
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get the selected checkboxes
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        
+        // If at least one checkbox is selected
+        if (checkboxes.length > 0) {
+            let selectedVehicles = [];
+            // Loop through each selected checkbox and push its value to the selectedVehicles array
+            checkboxes.forEach(function(checkbox) {
+                selectedVehicles.push(checkbox.value);
+            });
+            // Display the selected vehicles
+            document.getElementById('result').textContent = 'Selected vehicles: ' + selectedVehicles.join(', ');
+            form.reset();
+        } else {
+            // If no checkboxes are selected, display an error message
+            document.getElementById('result').textContent = 'Please select at least one vehicle!';
+        }
+    });
+</script>
+
+</body>
+</html>

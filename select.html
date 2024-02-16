@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The Select Element</h2>
+
+<p>The select element defines a drop-down list:</p>
+
+<form id="myForm" >
+ <label for="cars">choose a car:</label>
+ <select id="cars" name="cars" size="2" multiple>
+    <option value="volvo">Volvo</option>
+    <option value="audi" selected>audi</option>
+ </select>
+
+ <textarea name="message" rows="10" cols="30"></textarea>
+
+ <textarea name="message" style="width:200px; height:600px;">
+    The cat was playing in the garden.
+    </textarea>
+
+    
+</form>
+
+
+<form action="/action_page.php">
+    <fieldset>
+      <legend>Personalia:</legend>
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value="John"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value="Doe"><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+
+  <form action="/action_page.php">
+    <input list="browsers" name="browser">
+    <datalist id="browsers">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+    </datalist>
+    <input type="submit">
+  </form>
+<script>
+  const form = document.getElementById("myForm");
+  const select = document.getElementById("cars");
+
+  form.addEventListener("submit", function(event) {
+    if (select.value === "") {
+      event.preventDefault(); // Prevent form submission
+      alert("Please select a car!");
+      select.focus(); // Set focus to the select element
+    }
+    else{
+        alert(select.value)
+    }
+  });
+</script>
+
+</body>
+</html>
